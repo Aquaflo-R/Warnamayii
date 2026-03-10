@@ -1,1 +1,13 @@
 @import "tailwindcss";
+
+:root{
+--dark-green:#2E7D32;
+--light-green:#66BB6A;
+--background-color:#c3f1ab;
+--accent-beige:#E8F5E9;
+}
+
+body{
+font-family: 'Nunito', sans-serif;
+}
+
