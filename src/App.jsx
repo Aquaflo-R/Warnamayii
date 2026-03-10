@@ -1,8 +1,13 @@
+import Mainroute from "./route/mainroute";
+import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
+
 function App() {
   return (
     <>
-      <h1>warnamayii</h1>
-      <h1>Prohject</h1>
+      <Navbar/>
+      <Mainroute/>
+      <Footer/>
     </>
   );
 }
