@@ -34,25 +34,28 @@ export default function Home() {
 
       <section className="relative w-full h-[90vh] overflow-hidden flex items-center justify-center">
         {/* Image Slider */}
-        <AnimatePresence mode="wait">
+        <AnimatePresence mode="sync">
           <motion.img
             key={index}
             src={slides[index]}
             alt="hero"
             loading="auto"
-            initial={{ x: "100%" }}
-            animate={{ x: 0 }}
+            initial={{ x: "100%", scale: 1.1 }}
+            animate={{ x: 0, scale: 1.05 }}
             exit={{ x: "-100%" }}
             transition={{ duration: 0.7 }}
             className="absolute w-full h-full object-cover"
           />
         </AnimatePresence>
 
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-[var(--dark-green)]/50"></div>
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-[var(--dark-green)]/40 to-black/60"></div>
 
-        {/* Centered Content */}
+        {/* Content */}
         <div className="relative z-10 flex items-center justify-center text-center w-full">
+          {/* Glow Background */}
+          <div className="absolute w-[500px] h-[500px] bg-[var(--light-green)] opacity-30 blur-[160px] rounded-full"></div>
+
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
@@ -65,7 +68,7 @@ export default function Home() {
               Empowering Healthy Living Through Nature and Innovation
             </p>
 
-            <button className="group flex items-center gap-2 bg-[var(--light-green)] hover:bg-[var(--dark-green)] px-8 py-3 rounded-full font-semibold transition mx-auto">
+            <button className="group flex items-center gap-2 backdrop-blur-md bg-white/10 border border-white/20 hover:bg-[var(--light-green)] px-8 py-3 rounded-full font-semibold transition mx-auto shadow-lg">
               View Our Products
               <ArrowUpRight
                 size={20}
@@ -79,14 +82,14 @@ export default function Home() {
 
         <button
           onClick={prevSlide}
-          className="absolute left-6 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/50 text-white p-3 rounded-full"
+          className="absolute left-6 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/50 text-white p-3 rounded-full backdrop-blur-sm"
         >
           ❮
         </button>
 
         <button
           onClick={nextSlide}
-          className="absolute right-6 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/50 text-white p-3 rounded-full"
+          className="absolute right-6 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/50 text-white p-3 rounded-full backdrop-blur-sm"
         >
           ❯
         </button>
@@ -98,8 +101,8 @@ export default function Home() {
             <button
               key={i}
               onClick={() => setIndex(i)}
-              className={`w-1.5 h-1.5 rounded-full transition ${
-                i === index ? "bg-white scale-125" : "bg-white/50"
+              className={`h-1.5 rounded-full transition-all duration-300 ${
+                i === index ? "bg-white w-6" : "bg-white/40 w-2"
               }`}
             />
           ))}
@@ -130,7 +133,7 @@ export default function Home() {
 
             {/* FEATURES */}
 
-            <div className="grid grid-cols-2 gap-4 text-gray-700 mb-8">
+            <div className="grid grid-cols-[1fr_1fr] max-w-md gap-y-4 gap-x-2 text-gray-700 mb-8">
               <div>✔ Organic Agriculture</div>
               <div>✔ Wellness Products</div>
               <div>✔ Sanitisation Solutions</div>
@@ -145,20 +148,22 @@ export default function Home() {
 
           {/* RIGHT SIDE */}
 
-          <div className="relative">
+          <div className="relative flex justify-start overflow-visible ">
             {/* FLOATING CARD */}
 
-            <div className="absolute -top-10 right-8 bg-yellow-300 p-6 rounded-xl shadow-xl w-64 z-10">
-              <h4 className="font-semibold text-gray-800 mb-3">
-                Our Focus Areas
-              </h4>
+            <div className="absolute top-0 left-10 bg-yellow-300 p-8 rounded-2xl shadow-2xl w-[420px] z-20">
+              <p className="text-sm text-gray-700 mb-3">Trust By Clients</p>
 
-              <ul className="space-y-2 text-sm text-gray-700">
-                <li>🌱 Organic & Natural Products</li>
-                <li>💚 Health & Wellness</li>
-                <li>🧴 Hygiene & Sanitisation</li>
-                <li>📦 Responsible Distribution</li>
-              </ul>
+              <h3 className="text-4xl font-bold text-[var(--dark-green)] mb-4">
+                1,286,644+
+              </h3>
+
+              <div className="border-t border-gray-500/40 my-4"></div>
+
+              <p className="text-gray-700 text-sm leading-relaxed">
+                Duis eleifend euismod arcu, nec faucibus mauris finibus id.
+                Integer mattis, tellus non finibus rutrum.
+              </p>
             </div>
 
             {/* IMAGE */}
@@ -166,7 +171,7 @@ export default function Home() {
             <img
               src={hero4}
               alt="about"
-              className="rounded-xl w-full object-cover"
+              className="rounded-2xl w-[750px] h-[260px] object-cover mt-24 shadow-lg -ml-[20%]"
             />
           </div>
         </div>
