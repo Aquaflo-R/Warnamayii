@@ -145,9 +145,9 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Copyright */}
+      {/* Copyright section */}
       <div className="relative mt-16 text-center text-white/80 text-sm">
-        © Copyright 2025. All Rights Reserved by validthemes
+        © Copyright 2026. All Rights Reserved by DarkEliteCreations
       </div>
 
     </div>
