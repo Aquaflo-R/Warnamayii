@@ -5,6 +5,48 @@ import hero1 from "../assets/hero-slide-1.jpg";
 import hero2 from "../assets/hero-slide-2.jpg";
 import hero3 from "../assets/hero-slide-3.jpg";
 import hero4 from "../assets/hero-slide-4.jpg";
+import Agri from "../assets/Agri.jpg";
+import Wellness from "../assets/Wellness.jpg";
+import Health from "../assets/Health.jpg";
+import FMCG from "../assets/FMCG.jpg";
+import Others from "../assets/Others.jpg";
+import leaf1 from "../assets/leaf-svg-1.svg";
+import leaf2 from "../assets/leaf-svg-2.svg";
+
+const categories = ["Agriculture", "Wellness", "Health", "FMCG", "Others"];
+
+const products = {
+  Agriculture: [
+    { name: "Organic Fertilizer", img: Agri },
+    { name: "Natural Seeds", img: Agri },
+    { name: "Crop Nutrition Mix", img: Agri },
+    { name: "Plant Growth Booster", img: Agri },
+  ],
+  Wellness: [
+    { name: "Herbal Tea", img: Wellness },
+    { name: "Aromatherapy Oil", img: Wellness },
+    { name: "Relaxation Spray", img: Wellness },
+    { name: "Wellness Kit", img: Wellness },
+  ],
+  Health: [
+    { name: "Immunity Booster", img: Health },
+    { name: "Herbal Supplements", img: Health },
+    { name: "Organic Honey", img: Health },
+    { name: "Health Mix Powder", img: Health },
+  ],
+  FMCG: [
+    { name: "Natural Soap", img: FMCG },
+    { name: "Eco Detergent", img: FMCG },
+    { name: "Organic Shampoo", img: FMCG },
+    { name: "Household Cleaner", img: FMCG },
+  ],
+  Others: [
+    { name: "Eco Packaging", img: Others },
+    { name: "Reusable Bags", img: Others },
+    { name: "Green Products Kit", img: Others },
+    { name: "Sustainable Tools", img: Others },
+  ],
+};
 
 export default function Home() {
   const slides = [hero1, hero2, hero3, hero4];
@@ -28,10 +70,11 @@ export default function Home() {
     return () => clearInterval(interval);
   }, []);
 
+  const [activeTab, setActiveTab] = useState("Agriculture");
+
   return (
     <>
       {/* ================= HERO SECTION ================= */}
-
       <section className="relative w-full h-[90vh] overflow-hidden flex items-center justify-center">
         {/* Image Slider */}
         <AnimatePresence mode="sync">
@@ -108,71 +151,264 @@ export default function Home() {
           ))}
         </div>
       </section>
-
       {/* ================= ABOUT US SECTION ================= */}
-
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-[3fr_2fr] gap-16 items-center">
           {/* LEFT CONTENT */}
 
-          <div>
-            <p className="text-[var(--light-green)] font-semibold mb-3">
+          <motion.div
+            initial={{ x: -80, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+          >
+            <motion.p
+              initial={{ y: 30, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.2, duration: 0.8 }}
+              className="text-[var(--light-green)] font-semibold mb-3"
+            >
               🌿 About Our Company
-            </p>
+            </motion.p>
 
-            <h2 className="text-4xl lg:text-5xl font-bold text-[var(--dark-green)] leading-tight mb-6">
+            <motion.h2
+              initial={{ y: 40, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.35, duration: 0.9 }}
+              className="text-4xl lg:text-5xl font-bold text-[var(--dark-green)] leading-tight mb-6"
+            >
               Supporting Agriculture, Wellness & Sustainable Living
-            </h2>
+            </motion.h2>
 
-            <p className="text-gray-600 mb-8">
+            <motion.p
+              initial={{ y: 40, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.5, duration: 0.9 }}
+              className="text-gray-600 mb-8"
+            >
               Warnamayi is committed to delivering high-quality organic,
               wellness and sanitisation solutions. Our goal is to promote
               healthier lifestyles while maintaining sustainable and responsible
               practices that benefit people and the environment.
-            </p>
+            </motion.p>
 
             {/* FEATURES */}
 
             <div className="grid grid-cols-[1fr_1fr] max-w-md gap-y-4 gap-x-2 text-gray-700 mb-8">
-              <div>✔ Organic Agriculture</div>
-              <div>✔ Wellness Products</div>
-              <div>✔ Sanitisation Solutions</div>
-              <div>✔ Sustainable Practices</div>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.7 }}
+              >
+                ✔ Organic Agriculture
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.8 }}
+              >
+                ✔ Wellness Products
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.9 }}
+              >
+                ✔ Sanitisation Solutions
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1 }}
+              >
+                ✔ Sustainable Practices
+              </motion.div>
             </div>
 
-            <button className="flex items-center gap-2 bg-[var(--dark-green)] hover:bg-[var(--light-green)] text-white px-6 py-3 rounded-full font-semibold transition">
+            {/* BUTTON */}
+
+            <motion.button
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                opacity: { delay: 1.2, duration: 1.2, ease: "easeOut" },
+                y: { delay: 1.2, duration: 1.2, ease: "easeOut" },
+                scale: { duration: 0.05 },
+              }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.97 }}
+              className="flex items-center gap-2 bg-[var(--dark-green)] hover:bg-[var(--light-green)] text-white px-6 py-3 rounded-full font-semibold"
+            >
               More About Us
               <ArrowUpRight size={18} />
-            </button>
-          </div>
+            </motion.button>
+          </motion.div>
 
           {/* RIGHT SIDE */}
 
-          <div className="relative flex justify-start overflow-visible ">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+            className="relative flex justify-start items-end overflow-visible"
+          >
             {/* FLOATING CARD */}
 
-            <div className="absolute top-0 left-10 bg-yellow-300 p-8 rounded-2xl shadow-2xl w-[420px] z-20">
-              <p className="text-sm text-gray-700 mb-3">Trust By Clients</p>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: 40 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ delay: 0.6, duration: 1 }}
+              className="absolute top-0 left-10 bg-[var(--dark-green)] p-8 rounded-2xl w-[420px] z-20
+        shadow-[0_-6px_12px_rgba(102,187,106,0.3),-6px_0_12px_rgba(102,187,106,0.2),6px_0_12px_rgba(102,187,106,0.2)]"
+            >
+              <p className="text-sm text-green-200 mb-3">
+                Trusted By Our Clients
+              </p>
 
-              <h3 className="text-4xl font-bold text-[var(--dark-green)] mb-4">
-                1,286,644+
+              <h3 className="text-4xl font-bold text-white mb-4">
+                Excellence in Every Step
               </h3>
 
-              <div className="border-t border-gray-500/40 my-4"></div>
+              <div className="border-t border-[var(--background-color)]/50 my-4"></div>
 
-              <p className="text-gray-700 text-sm leading-relaxed">
-                Duis eleifend euismod arcu, nec faucibus mauris finibus id.
-                Integer mattis, tellus non finibus rutrum.
+              <p className="text-white text-sm leading-relaxed">
+                We are committed to delivering high-quality solutions and
+                services that make a real difference. Our clients rely on us for
+                reliable, professional, and impactful results.
               </p>
-            </div>
+            </motion.div>
 
             {/* IMAGE */}
 
-            <img
+            <motion.img
+              initial={{ x: 80, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ delay: 0.3, duration: 1 }}
               src={hero4}
               alt="about"
-              className="rounded-2xl w-[750px] h-[260px] object-cover mt-24 shadow-lg -ml-[20%]"
+              className="rounded-2xl w-[750px] h-[200px] object-cover mt-[228px] -ml-[25%] shadow-lg"
             />
+          </motion.div>
+        </div>
+      </section>
+      {/* ================= PRODUCTS SECTION ================= */}
+     
+      <section className="relative py-24 bg-[var(--accent-beige)] overflow-hidden">
+        {/* Floating Background SVGs */}
+
+        <motion.img
+          src={leaf1}
+          className="absolute top-10 left-26 w-20 opacity-10 pointer-events-none"
+          animate={{ y: [0, -12, 0], rotate: [0, 3, 0] }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        />
+
+        <motion.img
+          src={leaf2}
+          className="absolute top-40 right-16 w-24 opacity-10 pointer-events-none"
+          animate={{ y: [0, 12, 0], rotate: [0, -3, 0] }}
+          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+        />
+
+        <motion.img
+          src={leaf1}
+          className="absolute bottom-10 right-16 w-20 opacity-10 -rotate-12 pointer-events-none"
+          animate={{ y: [0, -10, 0], rotate: [-12, -8, -12] }}
+          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+        />
+
+        <motion.img
+          src={leaf2}
+          className="absolute top-[45%] left-0 w-20 opacity-10 -rotate-12 pointer-events-none"
+          animate={{ y: [0, 10, 0], rotate: [-12, -6, -12] }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        />
+
+        <div className="max-w-7xl mx-auto px-6">
+          {/* Heading */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <p className="text-[var(--light-green)] text-xl mb-2">
+              🌿 Our Products
+            </p>
+
+            <h2 className="text-5xl font-bold text-[var(--dark-green)] mb-4">
+              Products We Offer
+            </h2>
+
+            <p className="text-gray-600 max-w-xl mx-auto">
+              Discover our range of agriculture, wellness, health and FMCG
+              products designed for sustainable and healthy living.
+            </p>
+          </motion.div>
+
+          {/* Tabs */}
+          <div className="flex justify-center relative z-10 mb-[-20px]">
+            <div className="flex flex-wrap gap-5 px-4">
+              {categories.map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => setActiveTab(cat)}
+                  className={`px-6 py-2 bg-[var(--accent-beige)] rounded-full text-sm font-medium transition
+            ${
+              activeTab === cat
+                ? "bg-[var(--dark-green)] text-white"
+                : "text-[var(--dark-green)] border border-[var(--light-green)]"
+            }`}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Border Container */}
+          <div className="rounded-3xl p-10 pt-20 border border-[var(--dark-green)]/40">
+            {/* Products Grid */}
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {products[activeTab].map((product, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 35 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="group bg-white rounded-2xl overflow-hidden border border-[var(--light-green)]/30 hover:shadow-xl transition-all duration-300"
+                >
+                  {/* Image */}
+                  <div className="relative h-44 overflow-hidden">
+                    <img
+                      src={product.img}
+                      alt={product.name}
+                      className="w-full h-full object-cover group-hover:scale-110 transition duration-500"
+                    />
+
+                    {/* Overlay */}
+                    <div className="absolute inset-0 bg-[var(--dark-green)]/0 group-hover:bg-[var(--dark-green)]/40 transition flex items-center justify-center">
+                      <button className="opacity-0 group-hover:opacity-100 px-4 py-2 bg-white text-[var(--dark-green)] text-sm font-medium rounded-full transition">
+                        View Product
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-5 text-center">
+                    <h3 className="text-lg font-semibold text-[var(--dark-green)]">
+                      {product.name}
+                    </h3>
+
+                    <div className="w-10 h-[2px] bg-[var(--light-green)] mx-auto mt-3"></div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
