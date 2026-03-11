@@ -1,55 +1,49 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
-import hero1 from "../assets/hero-slide-1.jpg";
-import hero2 from "../assets/hero-slide-2.jpg";
-import hero3 from "../assets/hero-slide-3.jpg";
-import hero4 from "../assets/hero-slide-4.jpg";
-import Agri from "../assets/Agri.jpg";
-import Wellness from "../assets/Wellness.jpg";
-import Health from "../assets/Health.jpg";
-import FMCG from "../assets/FMCG.jpg";
-import Others from "../assets/Others.jpg";
-import leaf1 from "../assets/leaf-svg-1.svg";
-import leaf2 from "../assets/leaf-svg-2.svg";
 
 const categories = ["Agriculture", "Wellness", "Health", "FMCG", "Others"];
 
 const products = {
   Agriculture: [
-    { name: "Organic Fertilizer", img: Agri },
-    { name: "Natural Seeds", img: Agri },
-    { name: "Crop Nutrition Mix", img: Agri },
-    { name: "Plant Growth Booster", img: Agri },
+    { name: "Organic Fertilizer", img: "./images/Agri.jpg" },
+    { name: "Natural Seeds", img: "./images/Agri.jpg" },
+    { name: "Crop Nutrition Mix", img: "./images/Agri.jpg" },
+    { name: "Plant Growth Booster", img: "./images/Agri.jpg" },
   ],
   Wellness: [
-    { name: "Herbal Tea", img: Wellness },
-    { name: "Aromatherapy Oil", img: Wellness },
-    { name: "Relaxation Spray", img: Wellness },
-    { name: "Wellness Kit", img: Wellness },
+    { name: "Herbal Tea", img: "./images/Wellness.jpg" },
+    { name: "Aromatherapy Oil", img: "./images/Wellness.jpg" },
+    { name: "Relaxation Spray", img: "./images/Wellness.jpg" },
+    { name: "Wellness Kit", img: "./images/Wellness.jpg" },
   ],
   Health: [
-    { name: "Immunity Booster", img: Health },
-    { name: "Herbal Supplements", img: Health },
-    { name: "Organic Honey", img: Health },
-    { name: "Health Mix Powder", img: Health },
+    { name: "Immunity Booster", img: "./images/Health.jpg" },
+    { name: "Herbal Supplements", img: "./images/Health.jpg" },
+    { name: "Organic Honey", img: "./images/Health.jpg" },
+    { name: "Health Mix Powder", img: "./images/Health.jpg" },
   ],
   FMCG: [
-    { name: "Natural Soap", img: FMCG },
-    { name: "Eco Detergent", img: FMCG },
-    { name: "Organic Shampoo", img: FMCG },
-    { name: "Household Cleaner", img: FMCG },
+    { name: "Natural Soap", img: "./images/FMCG.jpg" },
+    { name: "Eco Detergent", img: "./images/FMCG.jpg" },
+    { name: "Organic Shampoo", img: "./images/FMCG.jpg" },
+    { name: "Household Cleaner", img: "./images/FMCG.jpg" },
   ],
   Others: [
-    { name: "Eco Packaging", img: Others },
-    { name: "Reusable Bags", img: Others },
-    { name: "Green Products Kit", img: Others },
-    { name: "Sustainable Tools", img: Others },
+    { name: "Eco Packaging", img: "./images/Others.jpg" },
+    { name: "Reusable Bags", img: "./images/Others.jpg" },
+    { name: "Green Products Kit", img: "./images/Others.jpg" },
+    { name: "Sustainable Tools", img: "./images/Others.jpg" },
   ],
 };
 
 export default function Home() {
-  const slides = [hero1, hero2, hero3, hero4];
+  const slides = [
+    "./images/hero-slide-1.jpg",
+    "./images/hero-slide-2.jpg",
+    "./images/hero-slide-3.jpg",
+    "./images/hero-slide-4.jpg",
+  ];
   const [index, setIndex] = useState(0);
 
   const nextSlide = () => {
@@ -107,11 +101,11 @@ export default function Home() {
           >
             <h1 className="text-5xl md:text-8xl font-bold mb-6">WARNAMAYI</h1>
 
-            <p className="text-lg md:text-xl mb-8">
+            <p className="text-lg md:text-lg mb-8">
               Empowering Healthy Living Through Nature and Innovation
             </p>
 
-            <button className="group flex items-center gap-2 backdrop-blur-md bg-white/10 border border-white/20 hover:bg-[var(--light-green)] px-8 py-3 rounded-full font-semibold transition mx-auto shadow-lg">
+            <button className="group flex items-center gap-2 backdrop-blur-lg bg-[var(--dark-green)] border border-white/20 hover:bg-[var(--light-green)] px-8 py-3 rounded-full font-semibold transition mx-auto shadow-lg">
               View Our Products
               <ArrowUpRight
                 size={20}
@@ -286,7 +280,7 @@ export default function Home() {
               initial={{ x: 80, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ delay: 0.3, duration: 1 }}
-              src={hero4}
+              src="./images/hero-slide-4.jpg"
               alt="about"
               className="rounded-2xl w-[750px] h-[200px] object-cover mt-[228px] -ml-[25%] shadow-lg"
             />
@@ -294,33 +288,33 @@ export default function Home() {
         </div>
       </section>
       {/* ================= PRODUCTS SECTION ================= */}
-     
+
       <section className="relative py-24 bg-[var(--accent-beige)] overflow-hidden">
         {/* Floating Background SVGs */}
 
         <motion.img
-          src={leaf1}
-          className="absolute top-10 left-26 w-20 opacity-10 pointer-events-none"
+          src="./images/leaf-1.svg"
+          className="absolute top-10 left-26 w-24 opacity-10 pointer-events-none"
           animate={{ y: [0, -12, 0], rotate: [0, 3, 0] }}
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
         />
 
         <motion.img
-          src={leaf2}
+          src="./images/leaf-2.svg"
           className="absolute top-40 right-16 w-24 opacity-10 pointer-events-none"
           animate={{ y: [0, 12, 0], rotate: [0, -3, 0] }}
           transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
         />
 
         <motion.img
-          src={leaf1}
+          src="./images/leaf-1.svg"
           className="absolute bottom-10 right-16 w-20 opacity-10 -rotate-12 pointer-events-none"
           animate={{ y: [0, -10, 0], rotate: [-12, -8, -12] }}
           transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
         />
 
         <motion.img
-          src={leaf2}
+          src="./images/leaf-2.svg"
           className="absolute top-[45%] left-0 w-20 opacity-10 -rotate-12 pointer-events-none"
           animate={{ y: [0, 10, 0], rotate: [-12, -6, -12] }}
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
