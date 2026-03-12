@@ -3,13 +3,13 @@ import { Link } from "react-router";
 
 const Footer = () => {
   return (
-    <div className="relative bg-[#057a51] text-white pt-20 pb-10 overflow-hidden">
+    <div className="relative bg-[#005c3c] text-white pt-20 pb-10 overflow-hidden">
 
       {/* Grass Image Bottom Left */}
       <img
         src="images/grass.png"
         alt="grass"
-        className="absolute bottom-0 left-0 w-40 md:w-56 opacity-90 pointer-events-none"
+        className="absolute bottom-0 left-0 w-40 md:w-48 opacity-90 pointer-events-none"
       />
 
       {/* Farmer Illustration Bottom Right */}
@@ -20,7 +20,7 @@ const Footer = () => {
       />
 
       {/* Footer Content */}
-      <div className="relative max-w-7xl mx-auto px-6 grid lg:grid-cols-4 md:grid-cols-2 gap-12">
+      <div className="relative max-w-7xl mx-auto px-6 grid lg:grid-cols-4 md:grid-cols-2 gap-12 pb-10">
 
         {/* Column 1 */}
         <div>
@@ -108,7 +108,8 @@ const Footer = () => {
           <h3 className="text-xl font-semibold mb-6">Contact Info</h3>
 
           <div className="flex gap-4 mb-6">
-            <div className="bg-white/10 p-3 w-14 h-12 flex items-center justify-center rounded-full">
+            <div className="bg-white/10 p-3 md:w-14 w-12 h-12 flex items-center justify-center rounded-full 
+              border border-dashed border-white/60 ">
               <MapPin size={20} />
             </div>
             <div>
@@ -120,7 +121,8 @@ const Footer = () => {
           </div>
 
           <div className="flex gap-4 mb-6">
-            <div className="bg-white/10 p-3 rounded-full">
+            <div className="bg-white/10 p-3 w-12 h-12 flex items-center justify-center rounded-full 
+              border border-dashed border-white/60 ">
               <Mail size={20} />
             </div>
             <div>
@@ -132,13 +134,14 @@ const Footer = () => {
           </div>
 
           <div className="flex gap-4">
-            <div className="bg-white/10 p-3 rounded-full">
+            <div className="bg-white/10 p-3 w-12 h-12 flex items-center justify-center rounded-full 
+              border border-dashed border-white/60 ">
               <Phone size={20} />
             </div>
             <div>
               <p className="font-semibold">PHONE:</p>
               <p className="text-white/80 text-sm">
-                +123 34598768
+                +91 3459876823
               </p>
             </div>
           </div>
@@ -147,7 +150,7 @@ const Footer = () => {
 
       {/* Copyright section */}
       <div className="relative mt-16 text-center text-white/80 text-sm">
-        © Copyright 2026. All Rights Reserved by DarkEliteCreations
+        © Copyright 2026. All Right Reserved | Designed & Developed by DarkEliteCreations
       </div>
 
     </div>
