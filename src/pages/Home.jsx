@@ -86,7 +86,7 @@ export default function Home() {
         </AnimatePresence>
 
         {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-[var(--dark-green)]/40 to-black/60"></div>
+        <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-black/40 via-[var(--dark-green)]/40 to-black/60"></div>
 
         {/* Content */}
         <div className="relative z-10 flex items-center justify-center text-center w-full">
@@ -119,14 +119,14 @@ export default function Home() {
 
         <button
           onClick={prevSlide}
-          className="absolute left-6 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/50 text-white p-3 rounded-full backdrop-blur-sm"
+          className="absolute left-6 top-1/2 -translate-y-1/2 z-20 bg-white/30 hover:bg-white/50 text-white p-3 rounded-full backdrop-blur-sm"
         >
           ❮
         </button>
 
         <button
           onClick={nextSlide}
-          className="absolute right-6 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/50 text-white p-3 rounded-full backdrop-blur-sm"
+          className="absolute right-6 top-1/2 -translate-y-1/2 z-20 bg-white/30 hover:bg-white/50 text-white p-3 rounded-full backdrop-blur-sm"
         >
           ❯
         </button>
@@ -295,29 +295,28 @@ export default function Home() {
         <motion.img
           src="./images/leaf-1.svg"
           className="absolute top-10 left-26 w-24 opacity-10 pointer-events-none"
-          animate={{ y: [0, -12, 0], rotate: [0, 3, 0] }}
+          animate={{ x: [0, -18, 0], rotate: [0, 3, 0] }}
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
         />
 
         <motion.img
           src="./images/leaf-2.svg"
           className="absolute top-40 right-16 w-24 opacity-10 pointer-events-none"
-          animate={{ y: [0, 12, 0], rotate: [0, -3, 0] }}
+          animate={{ y: [0, 18, 0], rotate: [0, -3, 0] }}
           transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-        />
-
-        <motion.img
-          src="./images/leaf-1.svg"
-          className="absolute bottom-10 right-16 w-20 opacity-10 -rotate-12 pointer-events-none"
-          animate={{ y: [0, -10, 0], rotate: [-12, -8, -12] }}
-          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
         />
 
         <motion.img
           src="./images/leaf-2.svg"
           className="absolute top-[45%] left-0 w-20 opacity-10 -rotate-12 pointer-events-none"
-          animate={{ y: [0, 10, 0], rotate: [-12, -6, -12] }}
+          animate={{ y: [0, 14, 0], rotate: [-12, -6, -12] }}
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.img
+          src="./images/leaf-1.svg"
+          className="absolute bottom-10 right-16 w-20 opacity-10 -rotate-12 pointer-events-none"
+          animate={{ x: [0, -18, 0], rotate: [-12, -8, -12] }}
+          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
         />
 
         <div className="max-w-7xl mx-auto px-6">
