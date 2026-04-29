@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight, Mail, Phone, User } from "lucide-react";
+import MagicBento from "../components/MagicBento";
 
 const categories = ["Agriculture", "Wellness", "Health", "FMCG", "Others"];
 
@@ -418,6 +419,31 @@ export default function Home() {
             </div>
           </div>
         </div>
+      </section>
+
+      {/* MagicBento Section */}
+      <section className="flex bg-black py-10 justify-center">
+        <div className="max-w-7xl grid grid-cols-2 gap-1 ">
+          <div className="self-center">
+            <img src="./images/hero-slide-2.jpg" alt=""/>
+          </div>
+          <div >
+            <MagicBento
+              textAutoHide={true}
+              enableStars={true}
+              enableSpotlight={true}
+              enableBorderGlow={true}
+              enableTilt={false}
+              enableMagnetism={false}
+              clickEffect={true}
+              spotlightRadius={400}
+              particleCount={12}
+              glowColor="132, 0, 255"
+              disableAnimations={false}
+            />
+          </div>
+        </div>
+
       </section>
 
       {/* ================= CONTACT US SECTION ================= */}
